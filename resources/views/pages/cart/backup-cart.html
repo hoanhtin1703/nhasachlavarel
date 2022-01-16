@@ -1,0 +1,131 @@
+<main id="tg-main" class="tg-main tg-haslayout">
+    <!--************************************
+            News Grid Start
+    *************************************-->
+    <div class="tg-sectionspace tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div id="tg-twocolumns" class="tg-twocolumns">
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
+                        <div id="tg-content" class="tg-content">
+                        @if(session()->has('message'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session()->get('message') }}
+                    </div>
+                @elseif(session()->has('error'))
+                     <div class="alert alert-danger" role="alert">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+                        <div style="padding:0 !important;" class="tg-sectionhead">
+                            <h3><i class="fas fa-shopping-cart"></i>Giỏ hàng của bạn</h3>
+                        </div>
+                        <form action="{{URL::to('/update-cart')}}" method="POST">
+					@csrf
+                        <table>
+
+                            <thead >
+                              <tr style="background-color:#484848;color:#fff; border-style: hidden !important;">
+
+                                <th >Ảnh Sản Phẩm</th>
+                                <th style="width: 300px" >Tên Sản Phẩm</th>
+                                <th >Giá Tiền</th>
+                                <th >Số Lượng</th>
+
+                                <th >Tổng</th>
+
+                                <th></th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @if(Session::get('cart')==true)
+                                @php
+                                $total = 0;
+                                @endphp
+                                @foreach(Session::get('cart') as $key => $cart)
+                                    @php
+                                        $subtotal = $cart['product_price']* $cart['product_quantity'] ;
+                                        $total+=$subtotal;
+
+                                    @endphp
+                              <tr>
+
+                                <td><a href=""><img src="{{asset('public/upload/product/'.$cart['product_image'])}}" width="100" alt="image description"></a></td>
+                                <td>{{$cart['product_name']}}</td>
+                                <td>{{number_format($cart['product_price']).' '.'vnđ'}}</td>
+                                <td>
+
+                                     <div style="padding: 0 !important" class="tg-quantityholder">
+
+                                    <input style=" width: 90px;" type="number" name="cart_qty[{{$cart['session_id']}}]" value="{{$cart['product_quantity']}}" class="result" id="quantity1" name="quantity">
+
+                                    <input type="hidden"  name="product_id_hidden" >
+
+
+                                </div>
+                            </form>
+                              </td>
+                                <td>
+                                    {{number_format($subtotal).' '.'vnđ'}}
+                                </td>
+                                <td> <a href="{{URL::to('/delete-cart/'.$cart['session_id'] )}}" ><i class="fas fa-trash-alt"></i></a></td>
+                              </tr>
+
+                              @endforeach
+
+                            </tbody>
+                        <tfoot>
+                        <th width="100%" style="background-color:#484848;" scope="row" colspan="5"><span style="color:#fff">Tổng tiền :</span><span style="color:#fff">{{number_format($total).' '.'vnđ'}}</span></th>
+                        </tfoot>
+                      @else
+                        <tfoot>
+                        <th width="100%" scope="row" colspan="5"></span><span style="color:#77b748">Bạn chưa có sản phẩm nào trong giỏ</span></th>
+                        </tfoot>
+                        @endif
+                          </table>
+
+                        <div>
+                            <button class="tg-btn tg-active ">Cập Nhật Sản Phẩm </button>
+
+                        </form>
+                            <div style="width: 60%; margin-left: 40%;">
+
+
+                                <div class="tg-btns">
+
+                                    <a class="tg-btn " href="{{URL::to('/home-all-product')}}">Xem Sản Phẩm Khác</a>
+                                    <?php
+										$customer_id = Session::get('customer_id');
+										if($customer_id != null) {
+
+										?>
+
+                                    <a class="tg-btn tg-active" href="{{URL::to('/checkout')}}">Thanh Toán</a>
+										<?php
+										}else {
+
+										?>
+										 <a class="tg-btn tg-active" href="{{URL::to('/login-checkout')}}">Thanh Toán</a>
+										<?php
+
+										}
+										?>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    </div>
+                    @include('elements.sidebar_home')
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--************************************
+            News Grid End
+    *************************************-->
+</main>

@@ -1,0 +1,304 @@
+table {
+	background-color: transparent !important;
+	max-width: 100%;
+}
+th { text-align: left !important; }
+table {
+	width: 100% !important;
+	margin-bottom: 15px !important;
+}
+td {
+    padding: 17px 0;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+	border-top: 1px solid #dbdbdb !important  ;
+    border:none ;
+	line-height: 2.5 !important;
+	padding-left: 3px !important;
+	text-align: center !important;
+	vertical-align: top !important;
+}
+table thead tr th {
+	border-top: 1px solid #dbdbdb !important;
+	text-align: center !important;
+	text-transform: capitalize !important;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td { border-top: 1px solid #dbdbdb; }
+table > thead > tr > th {
+	border-bottom: 2px solid #dbdbdb !important;
+	vertical-align: bottom !important;
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td { border-bottom: 0; }
+table > tbody + tbody { border-top: 2px solid #dbdbdb !important; }
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td { padding: 6px 10px !important; }
+
+.tg-bestsellingbooksslider .owl-nav{
+	right: 0;
+	top: -86px;
+	width: auto;
+	float: none;
+	position: absolute;
+}
+.tg-bestsellingbooks,
+.tg-bestsellingbooks .item{
+	width: 100%;
+	float: left;
+}
+.tg-bestsellingbooks .item .tg-postbook{padding:15px 0 0;}
+.tg-postbook {
+	width: 100%;
+	float: left;
+	padding: 15px 0;
+}
+.tg-featureimg {
+	margin: 0;
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+.tg-bookimg{
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.tg-frontcover {
+	z-index: 2;
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.tg-frontcover:before{
+	top: 0;
+	left: 0;
+	z-index: 3;
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background:
+		-moz-linear-gradient(left,
+		rgba(0,0,0,0) 8%,
+		rgba(0,0,0,0.1) 5%,
+		rgba(0,0,0,0) 13%);
+	background:
+		-webkit-linear-gradient(left,
+		rgba(0,0,0,0) 8%,
+		rgba(0,0,0,0.1) 5%,
+		rgba(0,0,0,0) 13%);
+	background:
+		linear-gradient(to right,
+		rgba(0,0,0,0) 8%,
+		rgba(0,0,0,0.1) 5%,
+		rgba(0,0,0,0) 13%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=1 );
+}
+.tg-backcover {
+	top: 2%;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 96%;
+	overflow: hidden;
+	background: #000;
+	position: absolute;
+}
+.tg-backcover img {
+	opacity: 0.60;
+	display: block;
+}
+.tg-backcover:after {
+	top: 4%;
+	right: 3px;
+	z-index: 2;
+	width: 15px;
+	height: 92%;
+	content: '';
+	position: absolute; 
+	 
+	background: url("{{asset('public/frontend/images/books/bookpattren.png')}}") no-repeat;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-ms-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+.tg-bookimg img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.tg-postbook:hover .tg-featureimg { padding: 9px 13px 9px 0; }
+.tg-postbook:hover .tg-bookimg {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: perspective(1000px) rotateY(-30deg) rotateZ(0deg);
+	-moz-transform: perspective(1000px) rotateY(-30deg) rotateZ(0deg);
+	-ms-transform: perspective(1000px) rotateY(-30deg) rotateZ(0deg);
+	-o-transform: perspective(1000px) rotateY(-30deg) rotateZ(0deg);
+	transform: perspective(1000px) rotateY(-30deg) rotateZ(0deg);
+}
+.tg-postbook:hover .tg-backcover {left: 18px;}
+.tg-featureimg .tg-btnaddtowishlist{
+	bottom: 35%;
+	left: 0;
+	opacity: 0;
+	z-index: 4;
+	width: 100%;
+	margin: 0 0 -17px;
+	visibility: hidden;
+	position: absolute;
+}
+.tg-postbook:hover .tg-btnaddtowishlist{
+	opacity: 1;
+	bottom: 50%;
+	visibility: visible;
+}
+.tg-postbookcontent {
+	width: 100%;
+	float: left;
+	padding: 15px 0 0;
+}
+.tg-bookscategories {
+	width: 100%;
+	float: left;
+	margin: 0 0 20px;
+	font-size: 13px;
+	line-height: 13px;
+	list-style: none;
+	padding: 0 0 8px;
+	border-bottom: 1px solid #dbdbdb;
+}
+.tg-bookscategories li {
+	float: left;
+	position: relative;
+	padding: 0 2px 0 8px;
+	line-height: inherit;
+	list-style-type: none;
+}
+.tg-bookscategories li:first-child{padding-left: 0;}
+.tg-bookscategories li + li:before {
+	left: 0;
+	bottom: 0;
+	content: ',';
+	color: inherit;
+	position: absolute;
+	font-size: inherit;
+	line-height: inherit;
+}
+.tg-bookscategories li a {
+	color: #666;
+	display: block;
+}
+.tg-themetagbox{
+	width: 100%;
+	float: left;
+	margin: 0 0 8px;
+	min-height: 16px;
+}
+.tg-themetag {
+	float: left;
+	color: #fff;
+	padding: 0 5px;
+	font-size: 10px;
+	line-height: 16px;
+	position: relative;
+	text-transform: uppercase;
+	border-radius: 4px 0 0 4px;
+}
+.tg-themetag:before {
+	top: 0;
+	width: 0;
+	height: 0;
+	left: 100%;
+	content: '';
+	position: absolute;
+	border-left: 5px solid;
+	border-top: 8px solid transparent !important;
+	border-bottom: 8px solid transparent !important;
+}
+.tg-booktitle {
+	width: 100%;
+	float: left;
+	padding: 0 0 20px;
+}
+.tg-booktitle h3 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 19px;
+}
+.tg-bookwriter {
+	width: 100%;
+	float: left;
+	font-size: 13px;
+	line-height: 13px;
+	padding: 0 0 6px;
+}
+.tg-bookwriter a {color: #666;}
+.tg-bestsellingbooks .tg-postbookcontent .tg-stars {
+	float: left;
+	margin: 0 0 20px;
+}
+.tg-bookprice {
+	width: 100%;
+	float: left;
+}
+.tg-bookprice ins,
+.tg-bookprice del {
+	float: left;
+	font: 500 18px/18px 'Work Sans', Arial, Helvetica, sans-serif;
+}
+.tg-bookprice del {
+	color: #666;
+	font-size: 13px;
+	padding-left: 10px;
+}
+.tg-postbookcontent .tg-btn {
+	width: 100%;
+	margin: 20px 0 0;
+}
+.tg-postbook.tg-notag .tg-postbookcontent .tg-btn{margin: 44px 0 0;}
+.tg-btnround{
+	color: #666;
+	width: 40px;
+	height: 40px;
+	float: left;
+	overflow: hidden;
+	line-height: 38px;
+	text-align: center;
+	border-radius: 50%;
+	margin: 0 0 0 10px;
+	border: 1px solid #dcdcdc;
+}
+.tg-btnround i {
+	width: 100%;
+	float: left;
+	display: block;
+	color: inherit;
+	font-size: 10px;
+	line-height: inherit;
+}
